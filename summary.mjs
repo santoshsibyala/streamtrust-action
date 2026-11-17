@@ -16,9 +16,9 @@ const object = value => value !== null && typeof value === 'object' && !Array.is
 export function inputs(env, nodeVersion = process.versions.node) {
   if (Number(nodeVersion.split('.')[0]) < 22) throw new Error('StreamTrust requires Node.js 22 or newer. Set node-version: "22" (or newer).');
   const get = (key, fallback) => env[`ST_${key}`] ?? fallback;
-  const version = get('VERSION', '0.6.1');
+  const version = get('VERSION', '0.6.2');
   // "latest" is an explicit, documented opt-in; no other tags/ranges/specifiers.
-  if (!exactVersion.test(version) && version !== 'latest') throw new Error('version must be an exact npm version (for example 0.6.1); only explicit latest is also allowed. Ranges are rejected.');
+  if (!exactVersion.test(version) && version !== 'latest') throw new Error('version must be an exact npm version (for example 0.6.2); only explicit latest is also allowed. Ranges are rejected.');
   const policy = get('FAIL_ON', 'failures');
   if (!['failures', 'errors', 'never'].includes(policy)) throw new Error('fail-on must be failures, errors, or never.');
   const install = get('INSTALL_DEPENDENCIES', 'false');

@@ -2,7 +2,7 @@
 
 Run StreamTrust checks against your streaming application's trusted adapter, see results in the job summary, and retain diagnostic reports. This composite action wraps the published CLI without changing its checks or report format.
 
-**Action version: v1.1.0.** Use `@v1` for compatible Action updates or pin `@v1.1.0` for this release. The default StreamTrust CLI version is pinned independently to `0.6.1`.
+**Action v1.1.1 is prepared, not released.** After release, use `@v1` for compatible updates or pin `@v1.1.1`. The default StreamTrust CLI version is pinned independently to `0.6.2`.
 
 **Compatibility:** The Action supports Ubuntu and macOS. On Windows it exits before Node setup.
 
@@ -20,7 +20,7 @@ After checking out your repository, installing your app/adapter dependencies and
     artifact-name: streamtrust-report
 ```
 
-The default CLI pin is **0.6.1**. You need an adapter that maps your application's UI/API and authoritative saved state. `npx --yes streamtrust@0.6.1 init` generates a runnable HTTP/SSE teaching example; it initially tests a bundled demo. See the [StreamTrust adapter guide](https://github.com/santoshsibyala/streamtrust#connect-your-application). Available presets are `http`, `librechat`, `vercel-ai`, `nextchat`, and `open-webui`. The browser presets require the dependencies and setup in their package guides; set `install-dependencies: true` to install the generated adapter dependencies and Chromium. Prepare the application as described in its preset guide.
+The default CLI pin is **0.6.2**. You need an adapter that maps your application's UI/API and authoritative saved state. `npx --yes streamtrust@0.6.2 init` generates a runnable HTTP/SSE teaching example; it initially tests a bundled demo. See the [StreamTrust adapter guide](https://github.com/santoshsibyala/streamtrust#connect-your-application). Available presets are `http`, `librechat`, `vercel-ai`, `nextchat`, and `open-webui`. The browser presets require the dependencies and setup in their package guides; set `install-dependencies: true` to install the generated adapter dependencies and Chromium. Prepare the application as described in its preset guide.
 
 ## Full workflow
 
@@ -66,7 +66,7 @@ jobs:
         uses: santoshsibyala/streamtrust-action@v1
         with:
           adapter: ./streamtrust/adapter.mjs
-          version: '0.6.1'
+          version: '0.6.2'
           output: reports/streamtrust
           repetitions: '3'
           timeout-ms: '300000'
@@ -84,7 +84,7 @@ For a monorepo, set `working-directory: apps/chat`; both `adapter` and `output` 
 |---|---|---|
 | `adapter` | Required | Trusted adapter path, relative to working-directory; spaces and shell metacharacters remain literal filename characters. |
 | `install-dependencies` | `false` | Run npm install in the trusted adapter folder if a package.json exists, then install Chromium with system dependencies when Playwright is declared. Installation can execute npm lifecycle scripts. |
-| `version` | `0.6.1` | Exact npm SemVer, including prereleases. Ranges, URLs and arbitrary tags are rejected. Explicit `latest` is allowed as an opt-in to a nonreproducible version; prefer an exact pin. |
+| `version` | `0.6.2` | Exact npm SemVer, including prereleases. Ranges, URLs and arbitrary tags are rejected. Explicit `latest` is allowed as an opt-in to a nonreproducible version; prefer an exact pin. |
 | `working-directory` | `.` | Existing directory, relative to the workflow workspace. |
 | `output` | `reports/streamtrust` | New or empty directory inside working-directory; no symlink components, line breaks or artifact glob characters. |
 | `repetitions` | `3` | Integer 1-1000. |
@@ -144,4 +144,4 @@ node --test test/*.test.mjs
 node test/integration.mjs
 ```
 
-The integration script downloads/runs published `streamtrust@0.6.1` in an isolated temporary consumer. GitHub workflows additionally exercise composite step wiring and artifact delivery. See [RELEASING.md](RELEASING.md) for exact hosted test and publishing steps.
+The integration script downloads/runs published `streamtrust@0.6.2` in an isolated temporary consumer. GitHub workflows additionally exercise composite step wiring and artifact delivery. See [RELEASING.md](RELEASING.md) for exact hosted test and publishing steps.

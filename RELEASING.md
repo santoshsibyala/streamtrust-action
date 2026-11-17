@@ -1,5 +1,9 @@
 # Review and release instructions
 
+## v1.1.1 release gate
+
+Confirm `npm view streamtrust@0.6.2 version` returns `0.6.2`. Run the existing Action tests on the release branch/PR and the manual expected-failure workflow (expected-failure red, assert-failed-job green). After review and merge, create annotated `v1.1.1` on the merge commit and move only `v1` to that commit. Use `release-notes-v1.1.1.md` for the release, not the full changelog. The owner selects Publish to Marketplace. Do not treat local tests as hosted platform validation.
+
 ## v1.1.0 dependency and release order
 
 First confirm `npm view streamtrust@0.6.1 version` returns `0.6.1`. Then open the Action PR and check the published-package integration, generated-browser-adapter job, and platform tests. After merge, tag the reviewed merge commit as v1.1.0, move v1 to the same commit, and publish the Marketplace release.
