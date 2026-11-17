@@ -10,7 +10,7 @@ inputs:
     required: true
   version:
     description: Exact StreamTrust npm version, or explicit latest opt-in.
-    default: '0.6.1'
+    default: '0.6.2'
   install-dependencies:
     description: Install the adapter folder's npm dependencies and its declared Playwright Chromium browser.
     default: 'false'

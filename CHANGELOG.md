@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.1 (unreleased)
+
+- Default to published StreamTrust 0.6.2, including the LibreChat selected-model selector/timing fix. Keep the metadata default and runtime fallback aligned.
+- Update published-package tests and examples to 0.6.2. Existing generated adapters must be regenerated or updated separately.
+
 ## v1.1.0
 
 - Add opt-in installation of a generated browser adapter's dependencies and Chromium.
